@@ -16,7 +16,6 @@ const catchApiErrors = async (error: unknown, screenAlert: (title: string, descr
 
         if(isAxiosError(error)) {
             screenAlert('Axios error', `Message: ${error.message}\nCode: ${error.code}\nStatus: ${error.status}`);
-            console.log(error.stack);
         }
         else {
             dataBaseConnectionError(error, screenAlert);

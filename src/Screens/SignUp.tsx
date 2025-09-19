@@ -61,10 +61,6 @@ const SignUp = (props: NativeStackScreenProps<AppStackParamList>) => {
                      financialGoal: user.financialGoal,
                      riskProfile: user.riskProfile,
                     };
-                console.log(registeredUser);
-                console.log(btoa(WEALTH_PILOT_API_LOGIN));
-                console.log(BASE_WEALTH_PILOT_API_URL);
-                console.log(CHAT_GPT_API_KEY);
                 await WealthPilotApi.post<string>('/users/signup', registeredUser, {
                     timeout: 500000,
                 });
