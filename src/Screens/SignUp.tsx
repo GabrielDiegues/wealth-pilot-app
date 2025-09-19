@@ -13,10 +13,6 @@ import { useState } from 'react';
 import BackButton from '../Components/HeaderStyles/HeaderRight/BackButton';
 import { SignUpUser, RegisteredUser } from '../Types/Index';
 import { createUserWithEmailAndPassword, FirebaseAuthTypes, getAuth } from '@react-native-firebase/auth';
-import { FirebaseError } from 'firebase/app';
-import { getErrorMessage } from '../Config/Errors';
-import { isAxiosError } from 'axios';
-import { BASE_WEALTH_PILOT_API_URL, CHAT_GPT_API_KEY, WEALTH_PILOT_API_LOGIN } from '@env';
 
 const {height} = Dimensions.get('window');
 const SignUp = (props: NativeStackScreenProps<AppStackParamList>) => {
@@ -39,11 +35,6 @@ const SignUp = (props: NativeStackScreenProps<AppStackParamList>) => {
 
 
     const screenAlert = useScreenAlert();
-
-    const accountCreationError = () => screenAlert('Erro ao criar conta', 'Por favor, tente de novo');
-
-
-    const dataBaseConnectionError = (error: unknown) => screenAlert('Erro de conexao', `${error instanceof Error ? error.message : 'Por favor, tente novamente mais tarde'}`);
 
 
     const createAccount = async () => {
