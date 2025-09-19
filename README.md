@@ -102,9 +102,7 @@ https://wealthpilot-api.onrender.com/api
 
 ### 📡 Integração
 
-O frontend (React Native) faz chamadas HTTP para os seguintes endpoints principais da API Java:
-
-* `POST /login` → Validação de credenciais.
+O frontend (React Native) faz chamadas HTTP para o seguinte endpoint principal da API Java:
 * `POST /signup` → Cadastro de novos usuários.
 
 
@@ -135,7 +133,7 @@ O frontend (React Native) faz chamadas HTTP para os seguintes endpoints principa
 
 ## 🛠️ Próximas melhorias
 
-* ✔️ Validação de email no frontend.
+* ✔️ Envio de código para cliente para realizar uma validação de email
 * ✔️ Salvamento do histórico de chat localmente.
 * ✔️ Logout e persistência de sessão.
 
