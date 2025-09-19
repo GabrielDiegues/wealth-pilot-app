@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "482887753588",
+    "project_id": "wealth-pilot-969d1",
+    "storage_bucket": "wealth-pilot-969d1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482887753588:android:373546e96c308f33201621",
+        "android_client_info": {
+          "package_name": "com.xpapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsY35owyiZUSwPcX9qc-OZ88vJmNni7Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

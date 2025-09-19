@@ -1,0 +1,80 @@
+rules:
+  # Evitar eval() e Function()
+  - id: rn-no-eval
+    languages: [javascript, typescript]
+    message: "Evite o uso de eval() ou Function() – podem permitir execução de código arbitrário."
+    severity: ERROR
+    patterns:
+      - pattern: |
+          eval($CODE)
+      - pattern: |
+          Function($CODE)
+
+  # Evitar logging de dados sensíveis
+  - id: rn-no-sensitive-log
+    languages: [javascript, typescript]
+    pattern: |
+      console.log($DATA)
+    message: "Não registre dados sensíveis (senhas, tokens, PII) em logs."
+    severity: WARNING
+
+  # Evitar armazenamento inseguro no AsyncStorage
+  - id: rn-insecure-asyncstorage
+    languages: [javascript, typescript]
+    pattern: |
+      AsyncStorage.setItem($KEY, $VALUE)
+    message: "Evite armazenar dados sensíveis sem criptografia no AsyncStorage."
+    severity: ERROR
+
+  # Evitar armazenamento inseguro no SecureStore
+  - id: rn-insecure-securestore
+    languages: [javascript, typescript]
+    pattern: |
+      SecureStore.setItemAsync($KEY, $VALUE)
+    message: "Verifique se os dados armazenados no SecureStore estão devidamente criptografados."
+    severity: WARNING
+
+  # Evitar XSS em WebView
+  - id: rn-webview-xss
+    languages: [javascript, typescript]
+    pattern: |
+      source={{ uri: $URL }}
+    message: "Valide URLs antes de passar para WebView para evitar XSS."
+    severity: ERROR
+
+  # Evitar hardcoded credentials
+  - id: rn-hardcoded-credentials
+    languages: [javascript, typescript]
+    patterns:
+      - pattern: |
+          signInWithEmailAndPassword($EMAIL, '123456')
+      - pattern: |
+          signInWithEmailAndPassword('admin', $PASSWORD)
+      - pattern: |
+          fetch($URL, { headers: { Authorization: 'Bearer $TOKEN' } })
+    message: "Evite credenciais hardcoded ou tokens fixos no código."
+    severity: ERROR
+
+  # Uso inseguro de pacotes externos
+  - id: rn-unsafe-package
+    languages: [javascript, typescript]
+    pattern: |
+      require($PACKAGE)
+    message: "Verifique vulnerabilidades conhecidas em pacotes externos utilizados."
+    severity: WARNING
+
+  # Evitar execução de WebView com HTML dinâmico
+  - id: rn-webview-html
+    languages: [javascript, typescript]
+    pattern: |
+      source={{ html: $HTML }}
+    message: "Evite injetar HTML dinâmico em WebView sem sanitização."
+    severity: ERROR
+
+  # Detectar chamadas inseguras de Linking
+  - id: rn-insecure-linking
+    languages: [javascript, typescript]
+    pattern: |
+      Linking.openURL($URL)
+    message: "Verifique URLs abertas com Linking.openURL para evitar ataques de phishing."
+    severity: WARNING
