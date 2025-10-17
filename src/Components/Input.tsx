@@ -1,21 +1,14 @@
 import { StyleSheet, TextInput, View, Text, Dimensions } from 'react-native';
 import styles from '../Styles/GlobalStyles';
+import { InputProps } from '../Types/ComponentsProperties';
 
-type inputProps = {
-    msg: string;
-    title: string;
-    userInput: string;
-    onChangeText: (text: string) => void;
-    hideEntry?: boolean;
-}
-
-const Input = ({msg, userInput, onChangeText, title, hideEntry}: inputProps) => {
+const Input = ({msg, userInput, onChangeText, title, hideEntry, spaceAbove}: InputProps) => {
     const {height} = Dimensions.get('window');
 
 
     return (
         <View style={localStyles.fieldsContainer}>
-            <Text style={[styles.fields, {paddingTop: (height / 10)}]}>{title}</Text>
+            <Text style={[styles.fields, {paddingTop: (height / spaceAbove)}]}>{title}</Text>
             <TextInput style={localStyles.input}
                 onChangeText={onChangeText}
                 value={userInput}

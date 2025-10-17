@@ -32,4 +32,5 @@ type ChatGptResponse = {
     choices: Choices[];
 }
 
-export type {RegisteredUser, SignUpUser, SignInUser, ChatGptResponse};
+
+export type {RegisteredUser, SignUpUser, SignInUser, ChatGptResponse, User};

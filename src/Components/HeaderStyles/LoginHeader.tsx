@@ -3,8 +3,10 @@ import { Image, StyleSheet, View } from 'react-native';
 const LoginHeader = () => {
     const styles = StyleSheet.create({
         container: {
-            backgroundColor: '#33363D',
-
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 250,
         },
     });
 
@@ -12,7 +14,7 @@ const LoginHeader = () => {
         <View style={styles.container}>
             <Image
                 style={localStyles.header}
-                source={require('../../Assets/XpLogo.png')}
+                source={require('../../Assets/WealthPilotLogo.png')}
             />
         </View>
     );
@@ -21,8 +23,8 @@ const LoginHeader = () => {
 
 const localStyles = StyleSheet.create({
     header: {
-        width: 10,
-        height: 10,
+        width: 200,
+        height: 200,
     },
 });
 

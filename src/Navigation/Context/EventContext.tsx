@@ -3,8 +3,8 @@ import { RegisteredUser } from '../../Types/Index';
 
 // 1. Define what data the context will provide
 type EventContextType = {
-    user: RegisteredUser;
-    setUser: React.Dispatch<React.SetStateAction<RegisteredUser>>;
+    loggedUser: RegisteredUser;
+    setLoggedUser: React.Dispatch<React.SetStateAction<RegisteredUser>>;
 }
 
 
@@ -22,7 +22,7 @@ const useEventContext = () => {
 
 // 4. Create the provider component
 const EventProvider = ({children}: {children: React.ReactNode}) => {
-    const [user, setUser] = useState<RegisteredUser>({
+    const [loggedUser, setLoggedUser] = useState<RegisteredUser>({
         firebaseUid: '',
         financialGoal: '',
         riskProfile: '',
@@ -30,7 +30,7 @@ const EventProvider = ({children}: {children: React.ReactNode}) => {
 
 
     return (
-        <EventContext.Provider value={{user, setUser}}>
+        <EventContext.Provider value={{loggedUser, setLoggedUser}}>
             {children}
         </EventContext.Provider>
     );

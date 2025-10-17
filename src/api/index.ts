@@ -2,7 +2,7 @@ import axios from 'axios';
 import {WEALTH_PILOT_API_LOGIN, CHAT_GPT_API_KEY} from '@env';
 
 const WealthPilotApi = axios.create({
-    baseURL: 'https://wealthpilot-api.onrender.com/api',
+    baseURL: 'http://10.0.2.2:8080/api',
     headers: {
         Authorization: 'Basic ' + btoa(WEALTH_PILOT_API_LOGIN),
     },

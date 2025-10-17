@@ -1,5 +1,6 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
 import { RegisteredUser } from './Index';
+import { FormProps } from './ComponentsProperties';
 
 type HomeProps = {
     params: NavigatorScreenParams<HomeDrawerParamList>;
@@ -9,7 +10,7 @@ type HomeProps = {
 
 type HomeDrawerParamList = {
     Chat: {user: RegisteredUser};
-    Configurations: {user: RegisteredUser};
+    UpdateData: FormProps;
 }
 
 

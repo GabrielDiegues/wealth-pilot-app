@@ -1,10 +1,6 @@
 import { Text, TouchableOpacity } from 'react-native';
 import styles from '../Styles/GlobalStyles';
-
-type FormButtonProps = {
-    buttonTitle: string;
-    onPressFunction: () => void;
-}
+import { FormButtonProps } from '../Types/ComponentsProperties';
 
 const FormButton = ({buttonTitle, onPressFunction}: FormButtonProps) => {
     return (
