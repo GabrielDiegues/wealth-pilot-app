@@ -13,7 +13,14 @@ const Home = () => {
     return (
         <Drawer.Navigator drawerContent={Logout}>
             <Drawer.Screen name="Chat" component={Chat}/>
-            <Drawer.Screen name="UpdateData" component={UpdateData}/>
+            <Drawer.Screen
+                name="UpdateData"
+                component={UpdateData}
+                options={{
+                    headerShown: false,
+                    title: 'Atualizar Informações',
+                }}
+            />
         </Drawer.Navigator>
     );
 };

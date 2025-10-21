@@ -9,28 +9,28 @@ type Message = {
     content: string;
 }
 
-const sampleAnswer = `Com base no seu perfil conservador e no seu objetivo de comprar um carro de R$200.000, aqui está o plano que sugiro:
+// const sampleAnswer = `Com base no seu perfil conservador e no seu objetivo de comprar um carro de R$200.000, aqui está o plano que sugiro:
 
-1️⃣ Horizonte e planejamento:
-Para atingir seu objetivo de forma segura, considerando sua renda de R$15.000/mês, recomendamos planejar um prazo de 18 a 24 meses para acumular o valor necessário, evitando riscos elevados.
+// 1️⃣ Horizonte e planejamento:
+// Para atingir seu objetivo de forma segura, considerando sua renda de R$15.000/mês, recomendamos planejar um prazo de 18 a 24 meses para acumular o valor necessário, evitando riscos elevados.
 
-2️⃣ Estratégia de investimento:
-Como você prefere baixo risco, sugiro alocar seus recursos principalmente em:
+// 2️⃣ Estratégia de investimento:
+// Como você prefere baixo risco, sugiro alocar seus recursos principalmente em:
 
-- Renda fixa de alta segurança: CDBs, Tesouro Direto IPCA+ e fundos DI — representam 70% da sua carteira.
-- Renda fixa de liquidez diária: para emergências e flexibilidade — 20% da carteira.
-- Pequena exposição a renda variável conservadora: ETFs de grandes empresas ou fundos de ações de baixo risco — 10%, apenas para potencializar o retorno sem comprometer sua segurança.
+// - Renda fixa de alta segurança: CDBs, Tesouro Direto IPCA+ e fundos DI — representam 70% da sua carteira.
+// - Renda fixa de liquidez diária: para emergências e flexibilidade — 20% da carteira.
+// - Pequena exposição a renda variável conservadora: ETFs de grandes empresas ou fundos de ações de baixo risco — 10%, apenas para potencializar o retorno sem comprometer sua segurança.
 
-3️⃣ Simulação de aporte mensal:
-Para atingir R$200.000 em 2 anos, considerando a rentabilidade média estimada (5-6% ao ano em renda fixa e 7-8% incluindo a pequena parcela em renda variável), você precisaria investir aproximadamente R$7.500 por mês.
+// 3️⃣ Simulação de aporte mensal:
+// Para atingir R$200.000 em 2 anos, considerando a rentabilidade média estimada (5-6% ao ano em renda fixa e 7-8% incluindo a pequena parcela em renda variável), você precisaria investir aproximadamente R$7.500 por mês.
 
 
-4️⃣ Observação de segurança:
-Mantemos diversificação e liquidez, garantindo que seu objetivo seja atingido sem expor seu capital a riscos desnecessários.
+// 4️⃣ Observação de segurança:
+// Mantemos diversificação e liquidez, garantindo que seu objetivo seja atingido sem expor seu capital a riscos desnecessários.
 
-Resumo:
+// Resumo:
 
-Investimento seguro, acompanhamento automatizado e disciplina financeira para que você compre seu carro sem preocupações em até 2 anos. 🚗💰`;
+// Investimento seguro, acompanhamento automatizado e disciplina financeira para que você compre seu carro sem preocupações em até 2 anos. 🚗💰`;
 
 
 const Chat = () => {
@@ -66,18 +66,18 @@ const Chat = () => {
         }
     };
 
-    const test = () => {
-        if(input.trim() && !isTyping) {
-            const newMessages: Message[] = [...messages, {role: 'user', content: input}];
-            setMessages(newMessages);
-            setInput('');
-            setIsTyping(true);
-            setTimeout(() => {
-              setMessages([...newMessages, {role: 'assistant', content: sampleAnswer}]);
-              setIsTyping(false);
-            }, 3000);
-        }
-    };
+    // const test = () => {
+    //     if(input.trim() && !isTyping) {
+    //         const newMessages: Message[] = [...messages, {role: 'user', content: input}];
+    //         setMessages(newMessages);
+    //         setInput('');
+    //         setIsTyping(true);
+    //         setTimeout(() => {
+    //           setMessages([...newMessages, {role: 'assistant', content: sampleAnswer}]);
+    //           setIsTyping(false);
+    //         }, 3000);
+    //     }
+    // };
 
 
     return (
@@ -108,7 +108,7 @@ const Chat = () => {
                     value={input}
                     onChangeText={setInput}
                 />
-                <TouchableOpacity style={localStyles.sendButton} onPress={test}>
+                <TouchableOpacity style={localStyles.sendButton} onPress={sendMessage}>
                     <Text style={localStyles.sendText}>Enviar</Text>
                 </TouchableOpacity>
             </View>

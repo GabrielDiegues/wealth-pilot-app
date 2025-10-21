@@ -1,17 +1,13 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Form from "../Components/Form";
-import { HomeDrawerParamList } from "../Types/Navigation";
-import { useEventContext } from "../Navigation/Context/EventContext";
-import { View } from "react-native";
-import { RegisteredUser, SignUpUser } from "../Types/Index";
-import { useState } from "react";
-import { InputProps } from "../Types/ComponentsProperties";
-import { updateUserProp } from "../Utils/UserUtil";
-import { WealthPilotApi } from "../api";
-import { useScreenAlert } from "../Utils/DisplayMessages";
-import { isAxiosError } from "axios";
-import Fire
-import { getAuth, updateCurrentUser, updateEmail } from "@react-native-firebase/auth";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Form from '../Components/Form';
+import { HomeDrawerParamList } from '../Types/Navigation';
+import { useEventContext } from '../Navigation/Context/EventContext';
+import { RegisteredUser, SignUpUser } from '../Types/Index';
+import { useState } from 'react';
+import { InputProps } from '../Types/ComponentsProperties';
+import { catchApiErrors, updateUserProp } from '../Utils/UserUtil';
+import { WealthPilotApi } from '../api';
+import { useScreenAlert } from '../Utils/DisplayMessages';
 
 // Outside variables
 const spaceAbove = 20;
@@ -19,7 +15,7 @@ const spaceAbove = 20;
 const UpdateData = (props: NativeStackScreenProps<HomeDrawerParamList>) => {
     // Inner variables
     const screenAlert = useScreenAlert();
-    const {firebaseUid, setfirebaseUid} = useEventContext();
+    const {firebaseUid} = useEventContext();
     const [isUpdating, setIsUpdating] = useState(false);
     const {navigation} = props;
     const [user, setUser] = useState<SignUpUser>({
@@ -30,20 +26,6 @@ const UpdateData = (props: NativeStackScreenProps<HomeDrawerParamList>) => {
     });
 
     const inputFields: InputProps[] = [
-        {
-            title: 'Email',
-            msg: 'Digite seu email',
-            userInput: user.email,
-            onChangeText: text => setUser(updateUserProp('email', text)),
-            spaceAbove: spaceAbove,
-        },
-        {
-            title: 'Senha',
-            msg: 'Digite sua senha',
-            userInput: user.password,
-            onChangeText: text => setUser(updateUserProp('password', text)),
-            spaceAbove: spaceAbove,
-        },
         {
             title: 'Objetivo Financeiro',
             msg: 'Digite seu objetivo',
@@ -65,29 +47,27 @@ const UpdateData = (props: NativeStackScreenProps<HomeDrawerParamList>) => {
     const updateUserData = async () => {
         setIsUpdating(true);
         try {
-            const currentUser = getAuth().currentUser;
+            // const currentUser = getAuth().currentUser;
 
-            await updateEmail(currentUser, "");
-            const requestBody: RegisteredUser = {
-                firebaseUid: firebaseUid,
-                financialGoal: user.financialGoal,
-                riskProfile: user.riskProfile,
-            };
+            // if(currentUser) {
+            //     const credential = EmailAuthProvider.credential(currentUser.email!, user.password);
+            //     await reauthenticateWithCredential(currentUser, credential);
+            //     user.password && await currentUser.updatePassword(user.password);
+            //     user.email && await currentUser.updateEmail(user.email);
+                const requestBody: RegisteredUser = {
+                    firebaseUid: firebaseUid,
+                    financialGoal: user.financialGoal,
+                    riskProfile: user.riskProfile,
+                };
 
-            const {data} = await WealthPilotApi.patch<string>('/patch', {
-                timeout: 500000,
-                Request: requestBody,
-            });
-            screenAlert('Success', data);
-            navigateToChat();
+                const {data} = await WealthPilotApi.patch<string>('/patch', requestBody, {
+                    timeout: 500000,
+                });
+                screenAlert('Success', data);
+                navigateToChat();
         }
         catch(error) {
-            if(isAxiosError(error) && error.response) {
-                screenAlert('Error', error.response.data);
-            }
-            else {
-                screenAlert('Error', 'Unexpected error. Please, try again later');
-            }
+            catchApiErrors(error, screenAlert);
         }
         setIsUpdating(false);
     };
