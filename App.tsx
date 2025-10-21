@@ -6,7 +6,6 @@ import { AppStackParamList } from './src/Types/Navigation';
 import Home from './src/Navigation/Home';
 import SignUp from './src/Screens/SignUp';
 import { EventProvider } from './src/Navigation/Context/EventContext';
-import FaceCapture from './src/Components/FaceCapture';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 function App(): React.JSX.Element {
@@ -32,13 +31,6 @@ function App(): React.JSX.Element {
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="camera"
-            component={FaceCapture}
             options={{
               headerShown: false,
             }}

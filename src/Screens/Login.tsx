@@ -18,7 +18,7 @@ import { WealthPilotApi } from '../api';
 const Login = (props: NativeStackScreenProps<AppStackParamList>) => {
     const {navigation} = props;
     const {height} = Dimensions.get('window');
-    const {loggedUser, setLoggedUser} = useEventContext();
+    const {firebaseUid, setfirebaseUid} = useEventContext();
     const [user, setUser] = useState<SignInUser>({
         email: '',
         password: '',
@@ -38,7 +38,7 @@ const Login = (props: NativeStackScreenProps<AppStackParamList>) => {
     const navigateToHome = () => {
         return navigation.reset({
         index: 0,
-        routes: [{name: 'camera'}],
+        routes: [{name: 'Home'}],
     });
     };
 
@@ -55,8 +55,8 @@ const Login = (props: NativeStackScreenProps<AppStackParamList>) => {
                 });
                 console.log(data.financialGoal);
                 console.log(data.riskProfile);
-                setLoggedUser({firebaseUid: uid, financialGoal: data.financialGoal, riskProfile: data.riskProfile});
-                console.log(loggedUser);
+                setfirebaseUid(uid);
+                console.log(firebaseUid);
                 navigateToHome();
             }
             catch(error) {

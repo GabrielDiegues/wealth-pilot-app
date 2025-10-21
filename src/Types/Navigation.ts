@@ -18,7 +18,6 @@ type AppStackParamList = {
     Login: undefined;
     SignUp: undefined;
     Home: HomeProps;
-    camera: undefined;
 }
 
 export type {HomeDrawerParamList, AppStackParamList};

@@ -9,6 +9,7 @@ import { createUserWithEmailAndPassword, FirebaseAuthTypes, getAuth } from '@rea
 import Form from '../Components/Form';
 import { InputProps } from '../Types/ComponentsProperties';
 
+// Outside variables
 const spaceAbove = 20;
 
 const SignUp = (props: NativeStackScreenProps<AppStackParamList>) => {
@@ -94,7 +95,6 @@ const SignUp = (props: NativeStackScreenProps<AppStackParamList>) => {
             formButtonProps={{buttonTitle: login ? 'Cadastrando' : 'Cadastrar', onPressFunction: createAccount}}
             user={user}
             onPickerValueChange={(itemValue: 'conservative' | 'aggressive' | '') => setUser(updateUserProp('riskProfile', itemValue))}
-            navigation={navigation}
         />
     );
 };

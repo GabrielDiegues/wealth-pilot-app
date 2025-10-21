@@ -1,10 +1,9 @@
 import { createContext, useContext, useState } from 'react';
-import { RegisteredUser } from '../../Types/Index';
 
 // 1. Define what data the context will provide
 type EventContextType = {
-    loggedUser: RegisteredUser;
-    setLoggedUser: React.Dispatch<React.SetStateAction<RegisteredUser>>;
+    firebaseUid: string;
+    setfirebaseUid: React.Dispatch<React.SetStateAction<string>>;
 }
 
 
@@ -22,15 +21,11 @@ const useEventContext = () => {
 
 // 4. Create the provider component
 const EventProvider = ({children}: {children: React.ReactNode}) => {
-    const [loggedUser, setLoggedUser] = useState<RegisteredUser>({
-        firebaseUid: '',
-        financialGoal: '',
-        riskProfile: '',
-    });
+    const [firebaseUid, setfirebaseUid] = useState('');
 
 
     return (
-        <EventContext.Provider value={{loggedUser, setLoggedUser}}>
+        <EventContext.Provider value={{firebaseUid, setfirebaseUid}}>
             {children}
         </EventContext.Provider>
     );

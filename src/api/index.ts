@@ -1,8 +1,8 @@
 import axios from 'axios';
-import {WEALTH_PILOT_API_LOGIN, CHAT_GPT_API_KEY} from '@env';
+import {WEALTH_PILOT_API_LOGIN, CHAT_GPT_API_KEY, BASE_WEALTH_PILOT_API_URL} from '@env';
 
 const WealthPilotApi = axios.create({
-    baseURL: 'http://10.0.2.2:8080/api',
+    baseURL: BASE_WEALTH_PILOT_API_URL,
     headers: {
         Authorization: 'Basic ' + btoa(WEALTH_PILOT_API_LOGIN),
     },
