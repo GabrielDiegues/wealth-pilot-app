@@ -94,6 +94,7 @@ const SignUp = (props: NativeStackScreenProps<AppStackParamList>) => {
             formButtonProps={{buttonTitle: login ? 'Cadastrando' : 'Cadastrar', onPressFunction: createAccount}}
             user={user}
             onPickerValueChange={(itemValue: 'conservative' | 'aggressive' | '') => setUser(updateUserProp('riskProfile', itemValue))}
+            navigation={navigation}
         />
     );
 };

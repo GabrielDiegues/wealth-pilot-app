@@ -38,7 +38,7 @@ const Login = (props: NativeStackScreenProps<AppStackParamList>) => {
     const navigateToHome = () => {
         return navigation.reset({
         index: 0,
-        routes: [{name: 'Home'}],
+        routes: [{name: 'camera'}],
     });
     };
 

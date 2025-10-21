@@ -1,4 +1,6 @@
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { SignUpUser } from './Index';
+import { AppStackParamList } from './Navigation';
 
 type InputProps = {
     msg: string;
@@ -23,6 +25,7 @@ type FormProps = {
     formButtonProps: FormButtonProps;
     user: SignUpUser
     onPickerValueChange: (item: 'conservative' | 'aggressive' | '') => void;
+    navigation: NativeStackNavigationProp<AppStackParamList>
 }
 
 export type {InputProps, FormButtonProps, FormProps};

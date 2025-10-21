@@ -2,6 +2,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import Form from "../Components/Form";
 import { HomeDrawerParamList } from "../Types/Navigation";
 import { useEventContext } from "../Navigation/Context/EventContext";
+import { View } from "react-native";
 
 const UpdateData = (props: NativeStackScreenProps<HomeDrawerParamList>) => {
     // Inner variables
@@ -18,12 +19,13 @@ const UpdateData = (props: NativeStackScreenProps<HomeDrawerParamList>) => {
 
 
     return (
-        <Form
-            backButtonNavigation={navigateToChat}
-            title="Atualize suas Informações"
-            fields={}
+        // <Form
+        //     backButtonNavigation={navigateToChat}
+        //     title="Atualize suas Informações"
+        //     fields={}
 
-        />
+        // />
+        <View></View>
     );
 };
 

@@ -6,12 +6,14 @@ import Title from './Title';
 import Input from './Input';
 import { Picker } from '@react-native-picker/picker';
 import FormButton from './FormButton';
+import FaceCapture from './FaceCapture';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 // Outer variables
 const {height} = Dimensions.get('window');
 
-const Form = ({ backButtonNavigation, title, fields, formButtonProps, user, onPickerValueChange }: FormProps) => {
+const Form = ({ backButtonNavigation, title, fields, formButtonProps, user, onPickerValueChange, navigation }: FormProps) => {
     return (
         <View style={localStyles.container}>
             <View style={[styles.header, { height: 200 }]}>
@@ -25,7 +27,7 @@ const Form = ({ backButtonNavigation, title, fields, formButtonProps, user, onPi
             </View>
 
 
-            {fields.map((item, key) =>
+            {fields.map((item, _) =>
                 <Input
                     title={item.title}
                     msg={item.msg}
@@ -63,6 +65,10 @@ const Form = ({ backButtonNavigation, title, fields, formButtonProps, user, onPi
                     </Picker>
                 </View>
 
+                <FormButton
+                    buttonTitle="Cadastrar rosto"
+                    onPressFunction={() => navigation.navigate('camera')}
+                />
                 <FormButton
                     buttonTitle={formButtonProps.buttonTitle}
                     onPressFunction={formButtonProps.onPressFunction}
