@@ -60,7 +60,7 @@ const UpdateData = (props: NativeStackScreenProps<HomeDrawerParamList>) => {
                     riskProfile: user.riskProfile,
                 };
 
-                const {data} = await WealthPilotApi.patch<string>('/patch', requestBody, {
+                const {data} = await WealthPilotApi.patch<string>('/users/patch', requestBody, {
                     timeout: 500000,
                 });
                 screenAlert('Success', data);
