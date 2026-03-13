@@ -1,12 +1,5 @@
 # 💰 WealthPilot App
 
-# Grupo
-- Bernardo Pinto Rocha - RM99209
-- Gabriel Diegues - RM550788
-- Luiza Cristina - RM99367
-- Pedro Palladino - RM551180
-- Renato Izumi - RM99242
-
 Aplicativo mobile desenvolvido em **React Native**, que permite aos usuários criarem uma conta, realizarem login e conversarem com uma inteligência artificial com o objetivo de receberem recomendações de carteiras de investimento.
 
 ## 🧠 Funcionalidades
