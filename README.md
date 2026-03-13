@@ -1,4 +1,4 @@
-# 💸 WealthPilot App
+# 💰 WealthPilot App
 
 # Grupo
 - Bernardo Pinto Rocha - RM99209
