@@ -57,7 +57,7 @@ npx react-native run-android
 npx react-native run-ios
 
 🗄️ Backend e Banco de Dados
-
+```
 O aplicativo se conecta a uma API própria desenvolvida em Java, que é responsável por gerenciar e armazenar os dados adicionais dos usuários.
 
 🔐 Autenticação com Firebase
@@ -132,7 +132,3 @@ O frontend (React Native) faz chamadas HTTP para o seguinte endpoint principal d
 Protótipo interativo do Figma
 
 https://www.figma.com/proto/uaNUqmknx06Vk4ncmC6KqH/Sem-t%C3%ADtulo?node-id=0-1&t=fu8O62a2ZzfXCDWt-1
-
-🤝 Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
